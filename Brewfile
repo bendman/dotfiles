@@ -43,6 +43,7 @@ install rhino
 install tree
 install webkit2png
 install zopfli
+install z
 
 tap homebrew/versions
 install lua52
