@@ -89,3 +89,6 @@
 
 [push]
 	default = matching
+[user]
+	email = ben.duncan@idealist.org
+	name = bendman
