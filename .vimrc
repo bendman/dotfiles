@@ -1,3 +1,14 @@
+" Recommended Fonts:
+" -----------------
+" Using these fonts in a terminal will make tmux split borders
+" solid and powerline arrows relatively centered and clear.
+"
+" Regular = Terminus (TTF)
+"   even sizes are clear (12/14)
+"   not anti-aliased
+" Non-ASCII = Fira Mono
+"   anti-aliased
+"
 " Make Vim more useful
 set nocompatible
 
