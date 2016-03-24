@@ -26,7 +26,11 @@ Plugin 'eslint/eslint'
 Plugin 'bling/vim-airline'
 Plugin 'pangloss/vim-javascript'
 
+" Linters
 Plugin 'scrooloose/syntastic'
+
+" Theme
+Plugin 'tomasr/molokai'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -155,7 +159,10 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor,*/node_
 set wrap!
 
 " enable colors
-colorscheme duncan_reddish
+colorscheme molokai
+hi Normal ctermbg=none
+hi NonText ctermbg=none
+
 " enable powerline
 let g:airline_powerline_fonts = 1
 
