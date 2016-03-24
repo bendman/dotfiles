@@ -30,12 +30,15 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tpope/vim-sleuth'
+"Plugin 'tpope/vim-sleuth'
+Plugin 'ciaranm/detectindent'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'eslint/eslint'
 Plugin 'bling/vim-airline'
 Plugin 'pangloss/vim-javascript'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'mxw/vim-jsx'
 
 " Linters
 Plugin 'scrooloose/syntastic'
@@ -192,3 +195,4 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_loc_list_height = 4
