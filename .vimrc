@@ -39,12 +39,16 @@ Plugin 'bling/vim-airline'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'mxw/vim-jsx'
+Plugin 'matze/vim-move'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'moll/vim-bbye'
 
 " Linters
 Plugin 'scrooloose/syntastic'
 
 " Theme
-Plugin 'tomasr/molokai'
+Plugin 'romainl/Apprentice'
+"Plugin 'tomasr/molokai'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -76,7 +80,7 @@ set gdefault
 " Use UTF-8 without BOM
 set encoding=utf-8 nobomb
 " Change mapleader
-let mapleader=","
+let mapleader=" "
 " Don’t add empty newlines at the end of files
 set binary
 set noeol
@@ -162,6 +166,7 @@ noremap <leader>W :w !sudo tee % > /dev/null<CR>
 if has("autocmd")
   " Treat .json files as .js
   autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+  autocmd BufReadPost * :DetectIndent
 endif
 
 " Speed up CtrlP
@@ -173,17 +178,38 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor,*/node_
 set wrap!
 
 " enable colors
-colorscheme molokai
+colorscheme apprentice
 hi Normal ctermbg=none
 hi NonText ctermbg=none
 
 " enable powerline
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_mode_map = {
+      \ '__' : '-',
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'c'  : 'C',
+      \ 'v'  : 'V',
+      \ 'V'  : 'V',
+      \ '' : 'V',
+      \ 's'  : 'S',
+      \ 'S'  : 'S',
+      \ '' : 'S',
+      \ }
+let g:airline_section_x = ''
 
 " Mappings
 :nnoremap <leader>sv :source $MYVIMRC<cr>
 :nnoremap <leader>- :split<cr>
 :nnoremap <leader>\ :vsplit<cr>
+:nnoremap <leader>e :Explore<cr>
+:nnoremap <leader>b :CtrlPBuffer<cr>
+:nnoremap <leader>p :CtrlP<cr>
+:nnoremap <leader>q :Bdelete<cr>
 
 " Syntax Linting
 set statusline+=%#warningmsg#
@@ -191,8 +217,19 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_enable_signs = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_loc_list_height = 4
+
+" vim-move config
+" for terms that send Alt as Escape sequence
+" see http://vim.wikia.com/wiki/Mapping_fast_keycodes_in_terminal_Vim
+" for why the <F20> hack. Keeps Esc from waiting for other keys to exit visual
+set <F20>=^[j
+set <F21>=^[k
+vmap <F20> <Plug>MoveBlockDown
+vmap <F21> <Plug>MoveBlockUp
+nmap <F20> <Plug>MoveLineDown
+nmap <F21> <Plug>MoveLineUp
