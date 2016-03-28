@@ -42,6 +42,7 @@ Plugin 'mxw/vim-jsx'
 Plugin 'matze/vim-move'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'moll/vim-bbye'
+Plugin 'easymotion/vim-easymotion'
 
 " Linters
 Plugin 'scrooloose/syntastic'
@@ -203,6 +204,7 @@ let g:airline_mode_map = {
 let g:airline_section_x = ''
 
 " Mappings
+:imap jk <Esc>
 :nnoremap <leader>sv :source $MYVIMRC<cr>
 :nnoremap <leader>- :split<cr>
 :nnoremap <leader>\ :vsplit<cr>
@@ -233,3 +235,11 @@ vmap <F20> <Plug>MoveBlockDown
 vmap <F21> <Plug>MoveBlockUp
 nmap <F20> <Plug>MoveLineDown
 nmap <F21> <Plug>MoveLineUp
+
+" EasyMotion config
+let g:EasyMotion_do_mapping = 0 " disable defaults
+nmap <leader>s <Plug>(easymotion-overwin-f)
+let g:EasyMotion_smartcase = 1
+nmap <Leader>j <Plug>(easymotion-j)
+nmap jj <Plug>(easymotion-j)
+nmap kk <Plug>(easymotion-k)
