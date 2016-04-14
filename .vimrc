@@ -48,6 +48,8 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'scrooloose/syntastic'
 
 " Theme
+"Plugin 'chriskempson/base16-vim'
+
 Plugin 'romainl/Apprentice'
 "Plugin 'tomasr/molokai'
 
